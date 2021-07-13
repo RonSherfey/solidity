@@ -57,9 +57,10 @@ private:
 		AsmAnalysisInfo& _analysisInfo,
 		Dialect const& _dialect
 	);
-	CFG::Operation& visitFunctionCall(FunctionCall const&);
+	CFG::Operation const& visitFunctionCall(FunctionCall const&);
 	Stack visitAssignmentRightHandSide(Expression const& _expression, size_t _expectedSlotCount);
 
+	Scope::Function const& lookupFunction(YulString _name) const;
 	Scope::Variable const& lookupVariable(YulString _name) const;
 	std::pair<CFG::BasicBlock*, CFG::BasicBlock*> makeConditionalJump(StackSlot _condition);
 	void makeConditionalJump(StackSlot _condition, CFG::BasicBlock& _nonZero, CFG::BasicBlock& _zero);

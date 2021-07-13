@@ -37,7 +37,11 @@ struct Scope
 {
 	using YulType = YulString;
 
-	struct Variable { YulType type; YulString name; };
+	struct Variable
+	{
+		YulType type;
+		YulString name;
+	};
 	struct Function
 	{
 		std::vector<YulType> arguments;
